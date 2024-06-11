@@ -28,9 +28,56 @@
 
 
 
+    <div id="time-wrapper">
+      <h2>The World Clock</h2>
+      <div id="time-holder">
+        <div>
+          <span>GMT: </span>
+          <span id="gmt"></span>
+        </div>
+        <div>
+          <span>CET: </span>
+          <span id="cet"></span>
+        </div>
+        <div>
+          <span>EST: </span>
+          <span id="est"></span>
+        </div>
+      </div>
+    </div>
+ 
+ <style>
+     #time-wrapper {
+  width: 250px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+#time-holder {
+  margin-top: 10px;
+}
+
+#time-holder div {
+  margin-bottom: 8px;
+}
+ </style>
 
 
 
+<script>
+    function updateClock() {
+    const gmtTime = new Date().toUTCString();
+    const cetTime = new Date().toLocaleString('nl-NL', {timeZone: 'Europe/Berlin'});
+    const estTime = new Date().toLocaleString('nl-NL', {timeZone: 'America/New_York'});
+
+    document.getElementById('gmt').innerHTML = gmtTime;
+    document.getElementById('cet').innerHTML = cetTime;
+    document.getElementById('est').innerHTML = estTime;
+}
+
+setInterval(updateClock, 1000);
+</script>
 
 
 
