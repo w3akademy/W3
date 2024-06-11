@@ -29,6 +29,94 @@
 
 
 
+<div class="container">
+	<h2 data-locale="Mexico" data-offset="-5">
+		<p></p>
+		🇲🇽 Mexico <small>(Mexico City)</small>
+	</h2>
+	
+	<h2 data-locale="New York" data-offset="-4">
+		<p></p>
+		🇺🇸 New York
+	</h2>
+	
+	<h2 data-locale="Brazil" data-offset="-3">
+		<p></p>
+		🇧🇷 Brazil <small>(Brasilia)</small>
+	</h2>
+	
+	<h2 data-locale="UK" data-offset="+1">
+		<p></p>
+		🇬🇧 UK <small>(London)</small>
+	</h2>
+	
+	<h2 data-locale="Singapore" data-offset="+8">
+		<p></p>
+		🇸🇬 Singapore
+	</h2>
+</div>
+
+<style>
+    body, h2, p{ margin: 0; padding: 0; font-family: monospace, Arial, sans-serif; }
+
+.container{
+	position: relative;
+	text-align: center;
+	background-color: #f1f2f3;
+	color: #4f4f4f;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.container h2{
+	padding: 22px;
+	font-size: 20px;
+}
+
+.container h2 small{ font-size: 14px; }
+</style>
+
+<script>
+    function searchClocks() {
+	document.querySelectorAll('.container h2').forEach(item => {
+		const timezone = {
+			locale: item.getAttribute('data-locale'),
+			offset: item.getAttribute('data-offset')
+		};
+		
+		setInterval(() => {
+			item.querySelector('p').innerHTML = calcTime(timezone);
+		}, 1000);
+	})
+}
+
+function calcTime(timezone) {
+	const d = new Date(),
+				utc = d.getTime() + (d.getTimezoneOffset() * 60000),
+				nd = new Date(utc + (3600000 * timezone.offset));
+
+	return nd.toLocaleString();
+}
+
+searchClocks();
+</script>
+
+
+
+
+
+
+
+
+
+
+<br /><br /><br />
+
+
+
 
 
 <div class="w3-container">
