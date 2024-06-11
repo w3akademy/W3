@@ -45,7 +45,7 @@
 <style>
 body, h2, p{ margin: 0; padding: 0; font-family: monospace, Arial, sans-serif; }
 
-.container{
+.clock-style{
 	text-align: center;
 	color: #4f4f4f;
 	width: 100vw;
@@ -55,19 +55,19 @@ body, h2, p{ margin: 0; padding: 0; font-family: monospace, Arial, sans-serif; }
 	justify-content: center;
 }
 
-.container h2{
+.clock-style h2{
 	padding: 12px;
 	font-size: 20px;
 }
 
-.container h2 small{ font-size: 14px; }
+.clock-style h2 small{ font-size: 14px; }
 </style>
 
 
 <script>
     // search all desired clocks
 function searchClocks() {
-	document.querySelectorAll('.container h2').forEach(item => {
+	document.querySelectorAll('.clock-style h2').forEach(item => {
 		const timezone = {
 			locale: item.getAttribute('data-locale'),
 			offset: item.getAttribute('data-offset')
