@@ -69,6 +69,7 @@
     function updateClock() {
     const gmtTime = new Date().toUTCString();
     const cetTime = new Date().toLocaleString('nl-NL', {timeZone: 'Europe/Berlin'});
+    const cetTime = new Date().toLocaleString('nl-NL', {timeZone: 'Asia/Tashkent'});
     const estTime = new Date().toLocaleString('nl-NL', {timeZone: 'America/New_York'});
 
     document.getElementById('gmt').innerHTML = gmtTime;
